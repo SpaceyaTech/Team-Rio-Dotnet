@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\data\SpaceYaTech.Data.csproj" />
+  </ItemGroup>
+
 </Project>
