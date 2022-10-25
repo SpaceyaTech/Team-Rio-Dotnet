@@ -20,7 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\bll\SpaceYaTech.BusinessLayerLogic.csproj" />
+    <ProjectReference Include="..\SpaceYaTech.Application\SpaceYaTech.Application.csproj" />
+    <ProjectReference Include="..\SpaceYaTech.Infra\SpaceYaTech.Infra.csproj" />
   </ItemGroup>
 
 </Project>

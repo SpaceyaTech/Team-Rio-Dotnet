@@ -4,10 +4,11 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RootNamespace>SpaceYaTech.BusinessLayerLogic</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\data\SpaceYaTech.Data.csproj" />
+    <ProjectReference Include="..\SpaceYaTech.Data\SpaceYaTech.Data.csproj" />
   </ItemGroup>
 
 </Project>
