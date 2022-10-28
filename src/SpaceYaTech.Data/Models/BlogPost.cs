@@ -6,10 +6,10 @@ public class BlogPost
     public Guid UserId { get; set; }
     public string Title { get; set; }
     public string Content { get; set; }
-    public DateTime Created { get; set; }
-    public DateTime? Updated { get; set; }
+    public DateTime DateCreated { get; set; }
+    public DateTime? DateUpdated { get; set; }
     public string Slug { get; set; }
-    public bool Published { get; set; }
-    
+    public bool IsPublished { get; set; }
+
     public User User { get; set; }
 }

@@ -22,6 +22,7 @@ builder.Services.AddSwaggerGen();
 
 // Add application services
 builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IBlogService, BlogService>();
 
 // Automapper configuration
 builder.Services.AddAutoMapper(typeof(AutomapperConfig));
