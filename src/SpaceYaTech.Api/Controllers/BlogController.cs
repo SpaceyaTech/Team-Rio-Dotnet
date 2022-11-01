@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SpaceYaTech.Api.Common;
 using SpaceYaTech.BusinessLayerLogic.Dtos;
@@ -8,6 +9,7 @@ namespace SpaceYaTech.Api.Controllers
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     [ApiVersion("1.0")]
+    [Authorize]
     public class BlogController : ControllerBase
     {
         private readonly IBlogService _blogService;

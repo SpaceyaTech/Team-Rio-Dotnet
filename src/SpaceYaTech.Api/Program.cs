@@ -1,5 +1,8 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using SpaceYaTech.BusinessLayerLogic.Interfaces;
 using SpaceYaTech.Data;
 using SpaceYaTech.Infra.Mapper;
@@ -27,6 +30,22 @@ builder.Services.AddTransient<IBlogService, BlogService>();
 // Automapper configuration
 builder.Services.AddAutoMapper(typeof(AutomapperConfig));
 
+// Add authentication
+// This should server temporarily until a proper Auth service is setup with actual users
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = false,           // Probably should be true to validate the audience
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["JwtIssuer"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtSecret"]))
+        };
+    });
+
 // Api versioning
 builder.Services.AddApiVersioning(opt =>
 {
@@ -52,6 +71,7 @@ app.UseApiVersioning();
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
